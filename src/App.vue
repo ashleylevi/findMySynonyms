@@ -10,7 +10,13 @@
         <button v-on:click="fetch">Find Synonyms!</button>
       </div>
       <p>Synonyms are:</p>
-      <ul></ul>
+      <div v-if="synonyms.length > 1">
+        <ul id="syns-array">
+          <li v-for="item in synonyms">
+            {{ item }}
+          </li>
+        </ul>
+      </div>
   </div>
 </template>
 
@@ -34,9 +40,11 @@ export default {
     fetch: async function() {
       const wordSynonyms = await fetchSynonyms(this.word)
       this.synonyms = wordSynonyms
+      this.displaySynonyms(this.synonyms)
     },
     displaySynonyms(syns) {
       syns.map((word) => {
+        console.log('word', word)
         return <li>{word}</li>
 
       })
