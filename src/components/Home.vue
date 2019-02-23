@@ -1,13 +1,15 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
+    <input v-model="message" placeholder="Enter a word">
+    <p>Synonyms are:</p><p>{{ synonyms }}</p>
     
   </div>
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld',
+  name: 'Home',
   props: {
     msg: String
   }
