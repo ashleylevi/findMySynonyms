@@ -1,8 +1,7 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
-    <input v-model="message" placeholder="Enter a word">
-    <p>Synonyms are:</p><p>{{ synonyms }}</p>
+    <!-- <h1>{{ msg }}</h1> -->
+    
     
   </div>
 </template>
@@ -11,7 +10,8 @@
 export default {
   name: 'Home',
   props: {
-    msg: String
+    // msg: String,
+    // synonyms: Array
   }
 }
 </script>

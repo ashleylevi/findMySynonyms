@@ -1,28 +1,49 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <Home msg="Welcome to findMySynonyms!"/>
+    <h1>Welcome to findMySynonyms!</h1>
+    <!-- <Home msg="Welcome to findMySynonyms!"/> -->
+    <input type="test" placeholder="Enter a word"
+      @keyup="word = $event.target.value"
+      />
+      <div id="submit-button">
+        <button v-on:click="fetch">Find Synonyms!</button>
+      </div>
+      <p>Synonyms are:</p>
+      <ul></ul>
   </div>
 </template>
 
 <script>
 
 import Home from './components/Home.vue'
+import { fetchSynonyms } from './utils.js'
 
 export default {
   name: 'app',
   components: {
     Home
   },
-  // methods: {
-  //   async fetchWords() {
-  //     const response = await fetch('')
-  //     const words = await response.json()
+  data() {
+    return {
+      word: '',
+      synonyms: []
+    }
+  },
+  methods: {
+    fetch: async function() {
+      const wordSynonyms = await fetchSynonyms(this.word)
+      this.synonyms = wordSynonyms
+    },
+    displaySynonyms(syns) {
+      syns.map((word) => {
+        return <li>{word}</li>
 
-  //   }
+      })
 
-  // }
+    }
 
+  },
 }
 </script>
 
