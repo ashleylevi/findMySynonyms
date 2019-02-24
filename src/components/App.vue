@@ -103,6 +103,8 @@ button {
   margin: 10px 10px 20px 10px;
   border: 5px solid #CECCCC;
   font-size: 15px;
+  color: #612940;
+  font-weight: 700;
   
 }
 
