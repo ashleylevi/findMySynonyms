@@ -5,6 +5,6 @@ export async function fetchSynonyms(word) {
   const synonyms = result[0].meta.syns[0].map((synonym) => {
     return synonym
   })
-  console.log('synonyms', synonyms)
   return synonyms
 }
+
