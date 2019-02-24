@@ -5,14 +5,17 @@
     <!-- <Home msg="Welcome to findMySynonyms!"/> -->
     <input type="test" placeholder="Enter a word"
       @keyup="word = $event.target.value"
+      v-on:keyup.delete="reset"
       />
       <div id="submit-button">
         <button v-on:click="fetch">Find Synonyms!</button>
+        <button v-on:click="reset">Reset</button>
       </div>
-      <p>Synonyms are:</p>
+
       <div v-if="synonyms.length > 1">
+        <p>Synonyms for {{ word }} are:</p>
         <ul id="syns-array">
-          <li v-for="item in synonyms">
+          <li v-for="(item, index) in synonyms" :id={index} v-on:click="updateWord">
             {{ item }}
           </li>
         </ul>
@@ -39,17 +42,19 @@ export default {
   methods: {
     fetch: async function() {
       const wordSynonyms = await fetchSynonyms(this.word)
-      this.synonyms = wordSynonyms
-      this.displaySynonyms(this.synonyms)
+      this.$data.synonyms = wordSynonyms
     },
-    displaySynonyms(syns) {
-      syns.map((word) => {
-        console.log('word', word)
-        return <li>{word}</li>
-
-      })
-
+    reset: function() {
+      console.log('resetting!')
+      this.$data.synonyms = []
+      this.$data.word = ''
+    },
+    updateWord: function() {
+      const items = document.querySelectorAll('.list-tem')
+      console.log('items', items)
+      
     }
+ 
 
   },
 }
