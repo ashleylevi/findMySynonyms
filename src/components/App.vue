@@ -12,7 +12,7 @@
         <button v-on:click="reset">Reset</button>
       </div>
       <div v-if="synonyms.length > 1">
-        <p>Synonyms for {{ word }} are:</p>
+        <p>Synonyms for <span class="word">{{ word }}</span> are:</p>
         <ul id="syns-array">
           <li v-for="(item, index) in synonyms" v-bind:key="`item-${index}`" v-on:click="updateWord">
             {{ item }} 
@@ -68,7 +68,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  margin-top: 160px;
+  margin: 160px 160px;
+
 }
 
 h1 {
@@ -76,7 +77,7 @@ h1 {
 }
 
 span {
-  color: #FDECEF;
+  color: #9D6381;
   font-weight: 700;
 }
 
@@ -97,8 +98,8 @@ input[type=text] {
 }
 
 button {
-  height: 30px;
-  width: 142px;
+  height: 35px;
+  width: 145px;
   margin: 10px 10px 20px 10px;
   border: 5px solid #CECCCC;
   font-size: 15px;
@@ -110,12 +111,33 @@ button:hover  {
   background-color: #FDECEF;
 }
 
+p {
+  color: #CECCCC;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.word {
+  color: #9D6381;
+}
+
+ul {
+  list-style-type: none;
+}
+
+li {
+  color: #CECCCC;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
 li:hover {
   cursor: pointer;
+  color: #9D6381;
 }
 
 i {
   font-size: 30px;
-  color: #FDECEF;
+  color: #9D6381;
 }
 </style>
