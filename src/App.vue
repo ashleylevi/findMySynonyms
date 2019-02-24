@@ -3,14 +3,23 @@
     <img alt="Vue logo" src="./assets/logo.png">
     <h1>Welcome to findMySynonyms!</h1>
     <!-- <Home msg="Welcome to findMySynonyms!"/> -->
-    <input type="test" placeholder="Enter a word"
+    <input type="text" placeholder="Enter a word" id="input"
       @keyup="word = $event.target.value"
+      v-on:keyup.delete="reset"
       />
       <div id="submit-button">
         <button v-on:click="fetch">Find Synonyms!</button>
+        <button v-on:click="reset">Reset</button>
       </div>
-      <p>Synonyms are:</p>
-      <ul></ul>
+
+      <div v-if="synonyms.length > 1">
+        <p>Synonyms for {{ word }} are:</p>
+        <ul id="syns-array">
+          <li v-for="(item, index) in synonyms" v-bind:key="`item-${index}`" v-on:click="updateWord">
+            {{ item }} 
+          </li>
+        </ul>
+      </div>
   </div>
 </template>
 
@@ -32,17 +41,20 @@ export default {
   },
   methods: {
     fetch: async function() {
-      const wordSynonyms = await fetchSynonyms(this.word)
-      this.synonyms = wordSynonyms
+      const wordSynonyms = await fetchSynonyms(this.$data.word)
+      this.$data.synonyms = wordSynonyms
+      let input = document.getElementById("input")
+      input.value = ''
     },
-    displaySynonyms(syns) {
-      syns.map((word) => {
-        return <li>{word}</li>
-
-      })
-
+    reset: function() {
+      this.$data.synonyms = []
+      this.$data.word = ''
+    },
+    updateWord: async function(e) {
+     this.$data.word = e.target.innerText 
+     const wordSynonyms = await fetchSynonyms(this.$data.word)
+     this.$data.synonyms = wordSynonyms   
     }
-
   },
 }
 </script>
