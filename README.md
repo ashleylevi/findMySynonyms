@@ -1,6 +1,7 @@
 # findMySynonyms
 
-## findMySynonyms is my first attempt at building an application with Vue. It is a single-page application that allows users to find synonyms for a word they search. Additionally, the synonyms are clickable. When one is clicked synonyms will display for that new word.
+## About
+findMySynonyms is my first attempt at building an application with Vue. It is a single-page application that allows users to find synonyms for a word they search. Additionally, the synonyms are clickable. When one is clicked synonyms will display for that new word.
 
 ## Project setup
 ```
