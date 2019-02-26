@@ -17,9 +17,9 @@ $ npm install
 $ npm run serve
 ```
 
-### screenshots
-[Screenshot 1](https://user-images.githubusercontent.com/39889553/53442087-aa4ca100-39c5-11e9-8fa8-2f60b2cd03a2.png)
-[Screenshot 2](https://user-images.githubusercontent.com/39889553/53442090-ab7dce00-39c5-11e9-83bd-0646a1a9ba41.png)
+## Screenshots
+<img width="942" alt="fms1" src="https://user-images.githubusercontent.com/39889553/53442087-aa4ca100-39c5-11e9-8fa8-2f60b2cd03a2.png">
+<img width="967" alt="fms2" src="https://user-images.githubusercontent.com/39889553/53442090-ab7dce00-39c5-11e9-83bd-0646a1a9ba41.png">
 
 
 
